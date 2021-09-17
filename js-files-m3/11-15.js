@@ -137,25 +137,30 @@ for (const key of keys) {
 Значение переменной values это массив ["Spacious apartment in the city center", 4, 2153].
 Значение переменной values получено с помощью цикла for...of. */
 
-ВАРИАНТ НЕ ДОРАБОТАН
-
 const apartment = {
   descr: "Spacious apartment in the city center",
   rating: 4,
   price: 2153,
 };
-let values = [];
+const values = [];
 // Change code below this line
+
 const keys = Object.keys(apartment);
 for (const key of keys) {
-  values.push(key);
-values.push(apartment[key]);
+  
+  values.push(apartment[key]);
+}
 
-};
 
-let values = Object.values(apartment);
-for (const value of values) {
-  values.push(value);
-values.push(apartment[value]);
+/* ---14---Задача. Подсчёт свойств 2.0
+Задание
+Выполни рефакторинг функции countProps(object) используя метод Object.keys() и, возможно, но необязательно, цикл for...of.
 
-};
+Тесты
+Объявлена функция countProps(object)
+Вызов countProps({}) возвращает 0
+Вызов countProps({ name: "Mango", age: 2 }) возвращает 2
+Вызов countProps({ mail: "poly@mail.com", isOnline: true, score: 500 }) возвращает 3
+Функция подсчитывает только собственные свойства объекта
+Функция использует метод Object.keys() и, возможно, цикл for...of */
+
