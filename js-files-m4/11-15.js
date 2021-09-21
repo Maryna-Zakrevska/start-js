@@ -115,3 +115,109 @@ console.log(doubledNumbers); // [2, 4, 6, 8, 10]
 Вызов функции со случайными, но валидными аргументами, возвращает правильное значение */
 
 
+function changeEven(numbers, value) {
+  // Change code below this line
+  
+  const newArray = [];
+  
+  for (let i = 0; i < numbers.length; i += 1) {
+    if (numbers[i] % 2 === 0) {
+      newArray.push(numbers[i] + value);
+    }
+    
+    else {newArray.push(numbers[i]);} 
+  }
+  
+ return newArray;
+  // Change code above this line
+}
+
+
+/* ---14--- Метод map()
+Большинство перебирающих методов массива это чистые функции. Они создают новый массив, заполняют его, применяя к значению каждого элемента указанную коллбек-функцию, после чего возвращают этот новый массив.
+
+Метод map(callback) используется для трансформации массива. Он вызывает коллбек-функцию для каждого элемента исходного массива, а результат её работы записывает в новый массив, который и будет результатом выполнения метода.
+
+массив.map((element, index, array) => {
+  // Тело коллбек-функции
+});
+Поэлементно перебирает оригинальный массив.
+Не изменяет оригинальный массив.
+Результат работа коллбек-функции записывается в новый массив.
+Возвращает новый массив такой же длины.
+Его можно использовать для того, чтобы изменить каждый элемент массива. Оригинальный массив используется как эталон, на базе которого можно сделать другую коллекцию.
+
+const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+
+const planetsInUpperCase = planets.map(planet => planet.toUpperCase());
+console.log(planetsInUpperCase); // ["EARTH", "MARS", "VENUS", "JUPITER"]
+
+const planetsInLowerCase = planets.map(planet => planet.toLowerCase());
+console.log(planetsInLowerCase); // ["earth", "mars", "venus", "jupiter"]
+
+// Оригинальный массив не изменился
+console.log(planets); // ["Earth", "Mars", "Venus", "Jupiter"]
+Использование анонимных стрелочных функций с неявным возвратом сильно сокращает «шум» объявления коллбек-функции, делая код чище и проще для восприятия.
+
+Задание
+Дополни код так, чтобы в переменной planetsLengths получился массив длин названий планет. Обязательно используй метод map().
+
+Тесты
+Объявлена переменная planets
+Значение переменной planets это массив ["Earth", "Mars", "Venus", "Jupiter"]
+Объявлена переменная planetsLengths
+Значение переменной planetsLengths это массив [5, 4, 6, 6]
+Для перебора массива планет использован метод map() */
+
+const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+// Change code below this line
+const planetsLengths = planets.map(planet => planet.length);
+
+/* ---15--- Метод map() и массив объектов
+Мы уже знаем что повседневная задача это манипуляция массивом объектов. Например, получить массив значений свойства из всех объектов. Есть массив студентов, а нужно получить отдельный массив их имён.
+
+const students = [
+  { name: "Mango", score: 83 },
+  { name: "Poly", score: 59 },
+  { name: "Ajax", score: 37 },
+  { name: "Kiwi", score: 94 },
+  { name: "Houston", score: 64 },
+];
+
+const names = students.map(student => student.name);
+console.log(names); // ["Mango", "Poly", "Ajax", "Kiwi", "Houston"]
+Используя метод map() можно перебрать массив объектов, и в коллбек-функции вернуть значение свойства каждого из них.
+
+Задание
+Используя метод map() сделай так, чтобы в переменной titles получился массив названий книг (свойство title) из всех объектов массива books.
+
+Тесты
+Объявлена переменная books
+Значение переменной books это массив
+Объявлена переменная titles
+Значение переменной titles это массив ["The Last Kingdom", "Beside Still Waters", "The Dream of a Ridiculous Man", "Redder Than Blood", "Enemy of God"]
+Для перебора массива books используется метод map() как чистая функция */
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+];
+// Change code below this line
+
+const titles =  books.map(book => book.title);
+
